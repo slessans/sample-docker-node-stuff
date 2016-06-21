@@ -1,0 +1,13 @@
+# this is important! is prevents the docker context from getting bloated
+# which can cause much longer build times esp on vbox machines
+node_modules
+*.log
+.DS_Store
+lib
+coverage
+
+# generated files
+/dist
+
+# jetbrains
+/.idea
