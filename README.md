@@ -9,10 +9,10 @@ To run, do: `docker-compose up`
 
 Remember, `docker-compose up` only builds on the first try. For subsequent runs
 do
-`
+```
 docker-compose build
 docker-compose up
-`
+```
 
 Or `docker-compose up --build`
 
