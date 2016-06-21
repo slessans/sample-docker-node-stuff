@@ -1,0 +1,20 @@
+{
+  "name": "sample-api",
+  "version": "1.0.0",
+  "description": "Sample api",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --watch src src/index.js",
+    "dev-legacy": "nodemon -L --watch src src/index.js"
+  },
+  "author": "Scott Lessans",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.13.4",
+    "ioredis": "2.0.1",
+    "mongodb": "2.1.21",
+    "nodemon": "1.9.2"
+  },
+  "devDependencies": {
+  }
+}

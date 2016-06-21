@@ -1,0 +1,38 @@
+version: '2'
+services:
+
+  server:
+    build: .
+    # switch to dev-legacy for virtualbox/docker installations
+    # that dont support inotify mounted volume change notifications:
+    # it will watch legacy mode which uses polling. this is less effecient
+    # but still works very well imo
+    command: "npm run-script dev"
+    ports:
+     - "8000:8000"
+    depends_on:
+     - redis
+     - mongo
+    volumes:
+      - "./src:/app/src"
+    environment:
+      REDIS_URL: redis://redis:6379
+      MONGO_URL: mongodb://mongo:27017/someDb
+      NODE_ENV: dev
+
+  # just for fun: example of composing with services
+  # mongo will persist data between runs automatically and
+  # be specific to this project! :)
+
+  # exposing this port is not necessary for this composition to run: api can connect to the nonexposed
+  # port but we expose this for debugging during dev
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  # see note about exposing ports above
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
